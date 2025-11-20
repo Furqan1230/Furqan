@@ -1,1 +1,73 @@
+video-manager-app
 https://smartdevpk.github.io/video-manager-app/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Video Manager</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+            background: #3b82f6;
+            color: white;
+        }
+        iframe {
+            width: 90%;
+            height: 350px;
+            margin-top: 25px;
+            border-radius: 10px;
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Smart Video Manager</h1>
+    <p>Paste any Video Embed URL here (YouTube, TikTok, Facebook)</p>
+
+    <input id="videoURL" type="text" placeholder="Example: https://www.youtube.com/embed/xyz123">
+
+    <button onclick="loadVideo()">Load Video</button>
+
+    <div id="player"></div>
+
+    <script>
+        function loadVideo() {
+            let url = document.getElementById("videoURL").value.trim();
+            if (url === "") {
+                alert("Please paste an embed URL.");
+                return;
+            }
+            document.getElementById("player").innerHTML = `
+                <iframe src="${url}" allowfullscreen></iframe>
+            `;
+        }
+    </script>
+
+</body>
+</html>
